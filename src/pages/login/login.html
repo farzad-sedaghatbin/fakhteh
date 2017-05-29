@@ -1,0 +1,43 @@
+<ion-content class="login-content">
+  <div class="login-top">
+    <h1>Login</h1>
+    <div class="bg"></div>
+    <span class="login-icon">
+        <ion-icon name="md-person"></ion-icon>
+    </span>
+  </div>
+
+  <div class="login-box">
+    <form (ngSubmit)="login()" #registerForm="ngForm" novalidate>
+      <ion-label>Email ID</ion-label>
+      <ion-item>
+        <ion-badge item-left>
+          <i class="form-icon email-icon"></i>
+        </ion-badge>
+        <ion-input type="email" name="email" required></ion-input>
+      </ion-item>
+
+      <ion-label>Password</ion-label>
+
+      <ion-item>
+        <ion-badge item-left>
+          <i class="form-icon lock-icon"></i>
+        </ion-badge>
+        <ion-input type="password"  name="password" required></ion-input>
+        <ion-badge item-right>
+          <i class="form-icon eye-icon"></i>
+        </ion-badge>
+      </ion-item>
+
+      <button ion-button class="forgot-btn" color="dark" clear>Forgot Password?</button>
+
+      <div class="submit-btn">
+        <button ion-button class="button-gradient" round type="submit" [disabled]="!registerForm.form.valid">Login</button>
+      </div>
+    </form>
+  </div>
+  <p class="register-link">
+    Don't have an Account? <button ion-button class="register-btn" clear (click)="createAccount()">Register Now</button>
+  </p>
+
+</ion-content>

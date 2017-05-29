@@ -1,0 +1,64 @@
+<ion-header class="bar-gradient">
+  <ion-navbar color="gradient">
+    <ion-title>Macbook Pro</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <i class="header-icon share-icon"></i>
+      </button>
+      <button ion-button icon-only>
+        <i class="header-icon fav-empty-icon"></i>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<div *ngIf="showSlideView">
+
+  <ion-slides pager>
+
+    <ion-slide>
+        <img src="assets/images/macbook-large.jpg" />
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/images/macbook-large.jpg" />
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/images/macbook-large.jpg" />
+    </ion-slide>
+
+  </ion-slides>
+</div>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <figure class="user-tn">
+        <img src="assets/images/user-tn.jpg" />
+      </figure>
+      <h1>Jonathan Parle</h1>
+      <h3>Posted 3 day ago</h3>
+
+      <h2>Macbook Pro</h2>
+
+      <button ion-button clear>
+        <i class="comment-icon"></i>
+      </button>
+      <ion-badge>$ 556</ion-badge>
+
+    </ion-card-header>
+    <ion-card-content>
+      <h4>description</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidi dunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+    </ion-card-content>
+
+    <footer>
+      <button ion-button right clear>14 km away</button>
+      <h4>Location</h4>
+      <p>Swami Road, New Mava,<br />
+        Sarthana, Rajkot</p>
+    </footer>
+  </ion-card>
+
+  <button ion-button full round class="button-gradient">Make an offer</button>
+</ion-content>
