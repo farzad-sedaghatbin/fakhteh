@@ -108,13 +108,21 @@
   </ion-list>
 
   <ion-item class="location">
-    <ion-label stacked>Location </ion-label>
-    <ion-input [(ngModel)]="model.loc" type="text"></ion-input>
+    <ion-label stacked>Address </ion-label>
+    <ion-input [(ngModel)]="model.adr" type="text"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label stacked>Description </ion-label>
     <ion-textarea [(ngModel)]="model.desc"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>استان</ion-label>
+    <ion-select [(ngModel)]="model.state" cancelText="بستن" okText="انتخاب" interface="popover" placeholder="استان">
+      <ion-option value="teh">Female</ion-option>
+      <ion-option value="m">Male</ion-option>
+    </ion-select>
   </ion-item>
 
 </ion-content>
