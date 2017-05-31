@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController, App } from 'ionic-angular';
+import { NavController, App, LoadingController } from 'ionic-angular';
 import { FilterPage } from '../filter/filter';
 import { ProductPage } from '../product/product';
 
@@ -12,9 +12,14 @@ export class DiscoverPage {
   public toggled: boolean;
   public showSearchResults: boolean;
 
-  constructor(public nav: NavController, public app: App) {
+  constructor(public nav: NavController, public app: App, public loadingCtrl: LoadingController) {
     this.toggled = false;
     this.showSearchResults = true;
+    let loader = this.loadingCtrl.create();
+    loader.present();
+    setTimeout(() => {
+      loader.dismiss();
+    }, 100);
   }
 
 
@@ -36,5 +41,9 @@ export class DiscoverPage {
   public showProduct() {
     console.log('Clicked');
     this.app.getRootNav().push(ProductPage);
+  }
+  public doInfinite(infiniteScroll) {
+    infiniteScroll.complete();
+    infiniteScroll.enable(false);
   }
 }

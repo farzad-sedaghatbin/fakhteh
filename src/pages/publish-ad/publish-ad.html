@@ -9,8 +9,6 @@
   </ion-navbar>
 </ion-header>
 
-
-
 <ion-content padding>
   <ion-label>Category </ion-label>
   <ion-list radio-group>
@@ -24,7 +22,7 @@
               </span>
               Mobile
             </ion-label>
-            <ion-radio value="mobile"></ion-radio>
+            <ion-radio (click)="radioClicked('mobile')"></ion-radio>
           </ion-item>
         </ion-col>
         <ion-col col-3>
@@ -35,7 +33,7 @@
               </span>
               Electronics & Appliances
             </ion-label>
-            <ion-radio value="appliances"></ion-radio>
+            <ion-radio (click)="radioClicked('appliances')"></ion-radio>
           </ion-item>
         </ion-col>
         <ion-col col-3>
@@ -46,7 +44,7 @@
               </span>
               Cars
             </ion-label>
-            <ion-radio value="cars"></ion-radio>
+            <ion-radio (click)="radioClicked('cars')"></ion-radio>
           </ion-item>
         </ion-col>
         <ion-col col-3>
@@ -57,7 +55,7 @@
               </span>
               Bikes
             </ion-label>
-            <ion-radio value="bikes"></ion-radio>
+            <ion-radio (click)="radioClicked('bikes')"></ion-radio>
           </ion-item>
         </ion-col>
         <ion-col col-3>
@@ -68,7 +66,7 @@
               </span>
               Furnitures
             </ion-label>
-            <ion-radio value="furnitures"></ion-radio>
+            <ion-radio (click)="radioClicked('furnitures')"></ion-radio>
           </ion-item>
         </ion-col>
         <ion-col col-3>
@@ -79,7 +77,7 @@
               </span>
               Fashion
             </ion-label>
-            <ion-radio value="fashion"></ion-radio>
+            <ion-radio (click)="radioClicked('fashion')"></ion-radio>
           </ion-item>
         </ion-col>
         <ion-col col-3>
@@ -90,7 +88,7 @@
               </span>
               Books, Sports & Hobbies
             </ion-label>
-            <ion-radio value="hobbies"></ion-radio>
+            <ion-radio (click)="radioClicked('hobbies')"></ion-radio>
           </ion-item>
         </ion-col>
         <ion-col col-3>
@@ -101,7 +99,7 @@
               </span>
               Pets
             </ion-label>
-            <ion-radio value="pets"></ion-radio>
+            <ion-radio (click)="radioClicked('pets')"></ion-radio>
           </ion-item>
         </ion-col>
 
@@ -109,32 +107,21 @@
     </ion-grid>
   </ion-list>
 
-  <ion-item>
-    <ion-label stacked>Sub-Category </ion-label>
-    <ion-select [(ngModel)]="sub-category">
-      <ion-option >Subcategory</ion-option>
-      <ion-option >Subcategory</ion-option>
-      <ion-option >Subcategory</ion-option>
-      <ion-option >Subcategory</ion-option>
-      <ion-option >Subcategory</ion-option>
-    </ion-select>
-  </ion-item>
-
   <ion-item class="location">
     <ion-label stacked>Location </ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input [(ngModel)]="model.loc" type="text"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label stacked>Description </ion-label>
-    <ion-textarea></ion-textarea>
+    <ion-textarea [(ngModel)]="model.desc"></ion-textarea>
   </ion-item>
 
 </ion-content>
 
 <ion-footer color="lightgray">
   <ion-toolbar>
-    <button class="button-gradient" ion-button round full>
+    <button (click)="submit()" class="button-gradient" ion-button round full>
       Apply
     </button>
   </ion-toolbar>

@@ -18,7 +18,6 @@ export class LoginPage {
   }
 
   public login() {
-alert('salam');
     this.nav.setRoot(TabsPage)
   }
 }

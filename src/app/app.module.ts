@@ -17,6 +17,9 @@ import { ChatBuyerPopover } from '../pages/chat-bg/chat-buyer-popover';
 import { MyProductPage } from '../pages/my-product/my-product';
 import { PublishAdPage } from '../pages/publish-ad/publish-ad';
 import { CreateAdModalPage } from '../pages/create-ad-modal/create-ad-modal';
+import { Camera } from '@ionic-native/camera';
+import { ImagePicker } from '@ionic-native/image-picker';
+import {MyService} from '../services/my.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,11 @@ import { CreateAdModalPage } from '../pages/create-ad-modal/create-ad-modal';
     MyProductPage,
     PublishAdPage,
     CreateAdModalPage
+  ],
+  providers: [
+    Camera,
+    ImagePicker,
+    MyService
   ],
   imports: [
     IonicModule.forRoot(MyApp)

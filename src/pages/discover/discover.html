@@ -11,14 +11,15 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-
   <ion-searchbar *ngIf="toggled"
     [showCancelButton]="false"
     (ionInput)="showResults($event)"
     (ionCancel)="clearSearch($event)"
     (ionClear)="clearSearch($event)">
-
   </ion-searchbar>
+  <ion-toolbar>
+    <ion-title>Updates will be shown here</ion-title>
+  </ion-toolbar>
 </ion-header>
 <ion-badge class="distance" color="light">within 3 km</ion-badge>
 <ion-content padding>
@@ -68,5 +69,8 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+    <ion-infinite-scroll threshold="5%" (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
   </div>
 </ion-content>
