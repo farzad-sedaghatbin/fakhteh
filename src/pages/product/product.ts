@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams,App } from 'ionic-angular';
+import { ChatPage } from '../chat/chat';
 
 @Component({
   selector: 'page-product',
@@ -7,7 +8,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ProductPage {
   public showSlideView:boolean = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductPage');
@@ -19,6 +20,10 @@ export class ProductPage {
 
   ionViewWillLeave() {
     this.showSlideView = false;
+  }
+
+  public chat(){
+    this.app.getRootNav().push(ChatPage);
   }
 
 }
