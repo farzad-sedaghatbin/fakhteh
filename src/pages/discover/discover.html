@@ -1,7 +1,5 @@
 <ion-header class="bar-gradient">
   <ion-navbar color="gradient">
-    <h3>All Categories</h3>
-    <h2>MJ Road, New Chowk, Rajkot</h2>
     <ion-buttons end>
       <button ion-button icon-only (click)="toggleSearch()">
         <i class="header-icon search-icon"></i>
@@ -12,6 +10,7 @@
     </ion-buttons>
   </ion-navbar>
   <ion-searchbar *ngIf="toggled"
+                 placeholder="جستجو"
     [showCancelButton]="false"
     (ionInput)="showResults($event)"
     (ionCancel)="clearSearch($event)"
