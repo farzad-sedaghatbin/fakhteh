@@ -20,6 +20,7 @@ import { CreateAdModalPage } from '../pages/create-ad-modal/create-ad-modal';
 import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import {MyService} from '../services/my.service';
+import {EditProfile} from '../pages/edit-pro/edit-pro';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {MyService} from '../services/my.service';
     ChatBuyerPopover,
     MyProductPage,
     PublishAdPage,
-    CreateAdModalPage
+    CreateAdModalPage,
+    EditProfile
   ],
   providers: [
     Camera,
@@ -67,7 +69,8 @@ import {MyService} from '../services/my.service';
     ChatBuyerPopover,
     MyProductPage,
     PublishAdPage,
-    CreateAdModalPage
+    CreateAdModalPage,
+    EditProfile
   ]
 })
 export class AppModule {}
