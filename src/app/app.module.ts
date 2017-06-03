@@ -21,6 +21,8 @@ import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import {MyService} from '../services/my.service';
 import {EditProfile} from '../pages/edit-pro/edit-pro';
+import {ModalPage} from '../pages/modal/modal';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import {EditProfile} from '../pages/edit-pro/edit-pro';
     MyProductPage,
     PublishAdPage,
     CreateAdModalPage,
-    EditProfile
+    EditProfile,
+    ModalPage
   ],
   providers: [
     Camera,
@@ -49,7 +52,9 @@ import {EditProfile} from '../pages/edit-pro/edit-pro';
     MyService
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule,
+    JsonpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -70,7 +75,8 @@ import {EditProfile} from '../pages/edit-pro/edit-pro';
     MyProductPage,
     PublishAdPage,
     CreateAdModalPage,
-    EditProfile
+    EditProfile,
+    ModalPage
   ]
 })
 export class AppModule {}
