@@ -1,14 +1,13 @@
 import {Injectable} from "@angular/core";
 import {Product} from "../model/product";
 import {Filter} from "../model/filter";
-import {User} from "../model/user";
 import {SQLite} from 'ionic-native';
 import { Http, Response} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {ModalPage} from '../pages/modal/modal';
-import {ModalController, App} from 'ionic-angular';
+import {ModalController, App,AlertController} from 'ionic-angular';
 import {LoginPage} from '../pages/login/login';
 
 @Injectable()
@@ -17,7 +16,7 @@ export class MyService {
   private filter;
   private user;
 
-  constructor(public modalCtrl: ModalController, public app: App,private http: Http) {
+  constructor(public modalCtrl: ModalController, public app: App,private http: Http,private alertCtrl: AlertController) {
   }
 
   post(url,options,data): Observable<Object> {
@@ -47,13 +46,13 @@ export class MyService {
   myHandleError(err, isFromLogin) {
     if (err.status == 401) {
       if (isFromLogin) {
-        this.openModal('<div>نام کاربری یا رمز عبور اشتباه می باشد</div>')
+        this.showPopup('خطا','نام کاربری یا رمز عبور اشتباه می باشد');
       } else {
         this.logout();
-        this.openModal('<div>لطفا اطلاعات حساب خود را وارد نمایید</div>')
+        this.showPopup('پیغام','لطفا اطلاعات حساب خود را وارد نمایید');
       }
     } else if (err.status == 0) {
-      this.openModal('<div>لطفا اتصال اینترنت خود را بررسی کنید</div>')
+      this.showPopup('خطا','لطفا اتصال اینترنت خود را بررسی کنید');
     } else if (err.status == 418) {
       this.openModal('<div class="myText" style="padding-bottom: 10px;direction: rtl;text-align: right;line-height: 1.5em">    <div style="direction: rtl;padding-top: 20px;line-height: 3em">' +
         '<span class="myText">خطا بدلیل آپدیت نبودن برنامه، لطفا برنامه را بروزرسانی کنید</span></div>' +
@@ -64,13 +63,29 @@ export class MyService {
         '<div ng-show="isAndroid()" style="direction: rtl;padding-top: 20px;line-height: 3em"><i class="icon ion-checkmark" style="color: #F06A21;font-size: medium"></i>' +
         '<a style="color: #F06A21;text-decoration: none" class="myText" href="https://goo.gl/Duh3Mn">کافه بازار</a></div></div>')
     } else {
-      this.openModal('خطا در ارتباط با سرور');
+      this.showPopup('خطا','خطا در ارتباط با سرور');
     }
   };
 
-  private openModal(content) {
+  public openModal(content) {
     let profileModal = this.modalCtrl.create(ModalPage, {content: content});
     profileModal.present();
+  }
+
+  public showPopup(title, text) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: [
+        {
+          text: 'OK',
+          handler: data => {
+            alert.dismiss();
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   logout() {

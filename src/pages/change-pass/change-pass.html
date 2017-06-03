@@ -1,0 +1,53 @@
+<ion-header class="bar-gradient">
+  <ion-navbar color="gradient">
+    <ion-title style="direction: rtl;text-align: right">Macbook Pro</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="login-content">
+  <div class="register-top">
+    <h1>Register</h1>
+    <div class="bg"></div>
+  </div>
+  <div class="register-box">
+    <form novalidate (ngSubmit)="register()" #changeForm="ngForm">
+
+      <ion-label>کلمه عبور</ion-label>
+      <ion-item>
+        <ion-badge item-left>
+          <i class="form-icon lock-icon"></i>
+        </ion-badge>
+        <ion-input type="password" [(ngModel)]="model.pass"  name="pass"  required></ion-input>
+        <ion-badge item-right>
+        </ion-badge>
+      </ion-item>
+
+      <ion-label>کلمه عبور جدید</ion-label>
+      <ion-item>
+        <ion-badge item-left>
+          <i class="form-icon lock-icon"></i>
+        </ion-badge>
+        <ion-input type="password" [(ngModel)]="model.newPass"  name="newPass"  required></ion-input>
+        <ion-badge item-right>
+        </ion-badge>
+      </ion-item>
+
+      <ion-label>تکرار کلمه عبور جدید</ion-label>
+      <ion-item>
+        <ion-badge item-left>
+          <i class="form-icon lock-icon"></i>
+        </ion-badge>
+        <ion-input type="password" [(ngModel)]="model.newPass2"  name="newPass2"  required></ion-input>
+        <ion-badge item-right>
+        </ion-badge>
+      </ion-item>
+
+      <div class="submit-btn">
+        <button ion-button class="button-gradient" round  type="submit" [disabled]="!changeForm.form.valid">Register</button>
+      </div>
+    </form>
+  </div>
+
+  <p class="register-link">
+    Already have an Account? <button ion-button class="register-btn" clear (click)="goToLogin()">Login Now</button>
+  </p>
+</ion-content>

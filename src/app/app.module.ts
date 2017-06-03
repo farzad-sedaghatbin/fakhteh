@@ -21,6 +21,7 @@ import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import {MyService} from '../services/my.service';
 import {EditProfile} from '../pages/edit-pro/edit-pro';
+import {ChangePass} from '../pages/change-pass/change-pass';
 import {ModalPage} from '../pages/modal/modal';
 import { HttpModule, JsonpModule } from '@angular/http';
 
@@ -44,7 +45,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
     PublishAdPage,
     CreateAdModalPage,
     EditProfile,
-    ModalPage
+    ModalPage,
+    ChangePass
   ],
   providers: [
     Camera,
@@ -76,7 +78,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
     PublishAdPage,
     CreateAdModalPage,
     EditProfile,
-    ModalPage
+    ModalPage,
+    ChangePass
   ]
 })
 export class AppModule {}

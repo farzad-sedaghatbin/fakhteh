@@ -1,15 +1,16 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {LoginPage} from '../login/login';
-import {User} from '../../model/user';
 import {MyService} from '../../services/my.service';
 
 @Component({
-  selector: 'page-register',
-  templateUrl: 'register.html'
+  selector: 'change-pass',
+  templateUrl: 'change-pass.html'
 })
-export class RegisterPage {
-  model = new User();
+export class ChangePass {
+  pass;
+  newPass;
+  newPass2;
 
   constructor(private nav: NavController,public myService:MyService) {
   }

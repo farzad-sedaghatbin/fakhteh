@@ -12,39 +12,38 @@
           <i class="camera-icon"></i>
         </button>
       </span>
-      <ion-label>Name</ion-label>
+      <ion-label>نام و نام خانوادگی</ion-label>
       <ion-item>
         <ion-badge item-left>
           <i class="form-icon user-icon"></i>
         </ion-badge>
-        <ion-input type="text"  name="name" required></ion-input>
+        <ion-input type="text" [(ngModel)]="model.name" name="name" required></ion-input>
       </ion-item>
 
-      <ion-label>Email ID</ion-label>
+      <ion-label>نام کاربری</ion-label>
       <ion-item>
         <ion-badge item-left>
-          <i class="form-icon email-icon"></i>
+          <i class="form-icon user-icon"></i>
         </ion-badge>
-        <ion-input type="email"  name="email" required></ion-input>
+        <ion-input type="text" [(ngModel)]="model.username" name="username" required></ion-input>
       </ion-item>
 
-      <ion-label>Password</ion-label>
+      <ion-label>کلمه عبور</ion-label>
       <ion-item>
         <ion-badge item-left>
           <i class="form-icon lock-icon"></i>
         </ion-badge>
-        <ion-input type="password"  name="password"  required></ion-input>
+        <ion-input type="password" [(ngModel)]="model.password"  name="password"  required></ion-input>
         <ion-badge item-right>
-          <i class="form-icon eye-icon"></i>
         </ion-badge>
       </ion-item>
 
-      <ion-label>Mobile Number</ion-label>
+      <ion-label>شماره همراه</ion-label>
       <ion-item>
         <ion-badge item-left>
           <i class="form-icon phone-icon"></i>
         </ion-badge>
-        <ion-input type="tel"  name="phone"  required></ion-input>
+        <ion-input type="tel" [(ngModel)]="model.mobile" name="phone"  required></ion-input>
       </ion-item>
 
       <div class="submit-btn">
