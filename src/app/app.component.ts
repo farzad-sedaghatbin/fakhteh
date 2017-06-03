@@ -14,8 +14,6 @@ export class MyApp {
   rootPage;
   constructor(platform: Platform,myService: MyService) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.rootPage = LoginPage;
       let db = new SQLite();
       db.openDatabase({
