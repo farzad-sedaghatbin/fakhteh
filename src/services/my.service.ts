@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Product} from "../model/product";
 import {Filter} from "../model/filter";
+import {User} from "../model/user";
 import {SQLite} from 'ionic-native';
 import { Http, Response} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -14,8 +15,7 @@ import {LoginPage} from '../pages/login/login';
 export class MyService {
   private product;
   private filter;
-  private username;
-  private token;
+  private user;
 
   constructor(public modalCtrl: ModalController, public app: App,private http: Http) {
   }
@@ -100,19 +100,10 @@ export class MyService {
     return this.filter;
   }
 
-  getUsername() {
-    return this.username;
-  }
-
-  setUsername(value) {
-    this.username = value;
-  }
-
-  setToken(value) {
-    this.token = value;
-  }
-
-  getToken() {
-    return this.token;
-  }
+  setUser(value){
+  this.user = value;
+}
+getUser(){
+  return this.user;
+}
 }

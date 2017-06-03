@@ -35,16 +35,13 @@ export class LoginPage {
         error =>  this.myService.myHandleError(error,true));
   }
   private success(result){
-    this.myService.setUsername(this.model.username);
-    this.myService.setToken(result.token);
+    this.myService.setUser(result);
     let db = new SQLite();
     db.openDatabase({
       name: "mydb",
       location: "default"
     }).then(() => {
-      db.executeSql('INSERT INTO ANIJUU (name, log) VALUES (?, ?)', ["username", this.myService.getUsername()]).then((data) => {
-      });
-      db.executeSql('INSERT INTO ANIJUU (name, log) VALUES (?, ?)', ["myToken", this.myService.getToken()]).then((data) => {
+      db.executeSql('INSERT INTO ANIJUU (name, log) VALUES (?, ?)', ["user", JSON.stringify(this.myService.getUser())]).then((data) => {
       });
     });
     this.nav.setRoot(TabsPage)

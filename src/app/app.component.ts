@@ -24,21 +24,18 @@ export class MyApp {
       }).then(() => {
         db.executeSql("CREATE TABLE IF NOT EXISTS bebarbiar (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, log TEXT)", {}).then((data) => {
         });
-        db.executeSql("SELECT d.log FROM bebarbiar d WHERE d.name='username'", {}).then((data) => {
+        db.executeSql("SELECT d.log FROM bebarbiar d WHERE d.name='user'", {}).then((data) => {
           if(data.rows.length > 0) {
-            myService.setUsername(data.rows.item(0).log);
+            myService.setUser(JSON.parse(data.rows.item(0).log));
             this.rootPage = LoginPage;
+              StatusBar.styleDefault();
+              Splashscreen.hide();
           } else {
             this.rootPage = DiscoverPage;
+            StatusBar.styleDefault();
+            Splashscreen.hide();
           }
         });
-        db.executeSql("SELECT d.log FROM bebarbiar d WHERE d.name='myToken'", {}).then((data) => {
-          if(data.rows.length > 0) {
-            myService.setToken(data.rows.item(0).log);
-          }
-        });
-        StatusBar.styleDefault();
-        Splashscreen.hide();
       }, (error) => {
         this.rootPage = LoginPage;
       });
