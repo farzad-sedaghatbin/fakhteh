@@ -1,0 +1,14 @@
+<ion-content style="width: 80%;height: 40%;top: 20%;left: 10%;z-index: 3">
+  <img src="assets/images/close-button.png" style="margin-top: 5%;margin-left: 5%;" (click)="dismiss()">
+  <div style="margin-top: 20px" [innerHTML]="content"></div>
+</ion-content>
+<div (click)="dismiss()" style="position: fixed; /* Sit on top of the page content */
+    display: block; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; "></div>
