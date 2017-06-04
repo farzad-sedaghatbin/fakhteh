@@ -5,6 +5,7 @@ export class Product {
   public state: string;
   public adr: string;
   public desc : string;
+  public period : string;
   public images: string[] = [];
   constructor() {
     this.images.push("assets/images/discover-img.jpg")

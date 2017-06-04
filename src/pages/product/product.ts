@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams,App } from 'ionic-angular';
 import { ChatPage } from '../chat/chat';
+import { MyService } from '../../services/my.service';
 
 @Component({
   selector: 'page-product',
@@ -8,7 +9,11 @@ import { ChatPage } from '../chat/chat';
 })
 export class ProductPage {
   public showSlideView:boolean = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {}
+  constructor(public myService:MyService, public app: App) {
+    setTimeout(() => {
+      alert(this.myService.getProductId())
+    }, 1000);
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductPage');

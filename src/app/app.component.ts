@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { LoginPage } from '../pages/login/login';
-import { DiscoverPage } from '../pages/discover/discover';
+import { TabsPage } from '../pages/tabs/tabs';
 import {MyService} from '../services/my.service';
 import {SQLite} from 'ionic-native';
 
@@ -14,7 +14,7 @@ export class MyApp {
   rootPage;
   constructor(platform: Platform,myService: MyService) {
     platform.ready().then(() => {
-      this.rootPage = LoginPage;
+      this.rootPage = TabsPage;
       let db = new SQLite();
       db.openDatabase({
         name: "mydb",
@@ -29,7 +29,7 @@ export class MyApp {
               StatusBar.styleDefault();
               Splashscreen.hide();
           } else {
-            this.rootPage = DiscoverPage;
+            this.rootPage = TabsPage;
             StatusBar.styleDefault();
             Splashscreen.hide();
           }

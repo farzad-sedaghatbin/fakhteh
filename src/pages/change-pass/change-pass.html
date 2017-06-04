@@ -16,7 +16,7 @@
         <ion-badge item-left>
           <i class="form-icon lock-icon"></i>
         </ion-badge>
-        <ion-input type="password" [(ngModel)]="model.pass"  name="pass"  required></ion-input>
+        <ion-input type="password" [(ngModel)]="pass"  name="pass"  required></ion-input>
         <ion-badge item-right>
         </ion-badge>
       </ion-item>
@@ -26,7 +26,7 @@
         <ion-badge item-left>
           <i class="form-icon lock-icon"></i>
         </ion-badge>
-        <ion-input type="password" [(ngModel)]="model.newPass"  name="newPass"  required></ion-input>
+        <ion-input type="password" [(ngModel)]="newPass"  name="newPass"  required></ion-input>
         <ion-badge item-right>
         </ion-badge>
       </ion-item>
@@ -36,7 +36,7 @@
         <ion-badge item-left>
           <i class="form-icon lock-icon"></i>
         </ion-badge>
-        <ion-input type="password" [(ngModel)]="model.newPass2"  name="newPass2"  required></ion-input>
+        <ion-input type="password" [(ngModel)]="newPass2"  name="newPass2"  required></ion-input>
         <ion-badge item-right>
         </ion-badge>
       </ion-item>
@@ -46,8 +46,4 @@
       </div>
     </form>
   </div>
-
-  <p class="register-link">
-    Already have an Account? <button ion-button class="register-btn" clear (click)="goToLogin()">Login Now</button>
-  </p>
 </ion-content>

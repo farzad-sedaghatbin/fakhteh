@@ -25,6 +25,7 @@ export class LoginPage {
   }
 
   public login() {
+    this.myService.loading();
     let url = "http://app.anijuu.ir/api/1/user_authenticate";
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
