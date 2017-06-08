@@ -25,7 +25,7 @@
     <ion-grid >
       <ion-row>
         <ion-col width-50>
-          <ion-card *ngFor="let m of model" (click)="showProduct(m.id)">
+          <ion-card *ngFor="let m of myService.products1" (click)="showProduct(m.id)">
             <img src="{{m.image}}" />
             <ion-card-content>
               <h3>{{m.title}}</h3>
@@ -35,7 +35,7 @@
           </ion-card>
         </ion-col>
         <ion-col width-50>
-          <ion-card *ngFor="let m2 of model2" (click)="showProduct(m2.id)">
+          <ion-card *ngFor="let m2 of myService.products2" (click)="showProduct(m2.id)">
             <img src="{{m2.image}}" />
             <ion-card-content>
               <h3>{{m2.title}}</h3>

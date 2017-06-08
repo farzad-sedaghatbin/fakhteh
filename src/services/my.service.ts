@@ -9,14 +9,17 @@ import 'rxjs/add/operator/map';
 import {ModalPage} from '../pages/modal/modal';
 import {ModalController, App, AlertController,LoadingController} from 'ionic-angular';
 import {LoginPage} from '../pages/login/login';
+import {Discover} from "../model/discover";
 
 @Injectable()
 export class MyService {
   private product;
   private filter;
   public user;
-  private productId;
+  public productId;
   private loader;
+  public products1: Array<Discover> = [];
+  public products2: Array<Discover> = [];
 
   constructor(public modalCtrl: ModalController, public app: App, private http: Http, private alertCtrl: AlertController,public loadingCtrl: LoadingController) {
   }
@@ -32,6 +35,7 @@ export class MyService {
   }
 
   public myHandleError(err, isFromLogin=false) {
+    this.stopLoading();
     if (err.status == 401) {
       if (isFromLogin) {
         this.showPopup('خطا', 'نام کاربری یا رمز عبور اشتباه می باشد');
@@ -111,11 +115,4 @@ export class MyService {
     return this.filter;
   }
 
-  public getProductId() {
-    return this.productId;
-  }
-
-  public setProductId(value) {
-    this.productId = value;
-  }
 }

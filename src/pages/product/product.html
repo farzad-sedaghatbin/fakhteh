@@ -8,27 +8,25 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
+<div *ngIf="show">
   <ion-slides pager autoplay="2000" loop="true">
-
     <ion-slide>
         <img src="assets/images/macbook-large.jpg" />
     </ion-slide>
-
     <ion-slide>
       <img src="assets/images/macbook-large.jpg" />
     </ion-slide>
-
     <ion-slide>
       <img src="assets/images/macbook-large.jpg" />
     </ion-slide>
-
   </ion-slides>
-
+</div>
 <ion-content>
+  <div *ngIf="show">
   <ion-card>
     <ion-card-header>
       <figure class="user-tn">
-        <img src="assets/images/user-tn.jpg" />
+        <img src="assets/images/user-tn.jpg" style="background: url('assets/images/comment-icon.png') no-repeat;"/>
       </figure>
       <h1>Jonathan Parle</h1>
       <h3>Posted 3 day ago</h3>
@@ -53,6 +51,6 @@
         Sarthana, Rajkot</p>
     </footer>
   </ion-card>
-
   <button ion-button full round class="button-gradient">Make an offer</button>
+  </div>
 </ion-content>
