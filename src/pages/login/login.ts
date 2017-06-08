@@ -26,7 +26,7 @@ export class LoginPage {
 
   public login() {
     this.myService.loading();
-    let url = "http://app.anijuu.ir/api/1/user_authenticate";
+    let url = "https://bebarbiar.cfapps.io/api/1/user_authenticate";
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let model = this.model;
@@ -36,17 +36,15 @@ export class LoginPage {
         error =>  this.myService.myHandleError(error,true));
   }
   private success(result){
-    this.myService.setUser(result);
+    this.myService.user = result;
     let db = new SQLite();
     db.openDatabase({
       name: "mydb",
       location: "default"
     }).then(() => {
-      db.executeSql('INSERT INTO ANIJUU (name, log) VALUES (?, ?)', ["user", JSON.stringify(this.myService.getUser())]).then((data) => {
+      db.executeSql('INSERT INTO ANIJUU (name, log) VALUES (?, ?)', ["user", JSON.stringify(this.myService.user)]).then((data) => {
       });
     });
     this.nav.setRoot(TabsPage)
   }
-
-
 }

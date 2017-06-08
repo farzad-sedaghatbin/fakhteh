@@ -14,17 +14,16 @@ import {LoginPage} from '../pages/login/login';
 export class MyService {
   private product;
   private filter;
-  private user;
+  public user;
   private productId;
   private loader;
 
   constructor(public modalCtrl: ModalController, public app: App, private http: Http, private alertCtrl: AlertController,public loadingCtrl: LoadingController) {
   }
 
-  post(url, options, data): Observable<Object> {
+  public post(url, options, data): Observable<Object> {
     return this.http.post(url, JSON.stringify(data), options)
-      .map(this.extractData)
-      .catch(this.handleError);
+      .map(this.extractData);
   }
 
   private extractData(res: Response) {
@@ -32,20 +31,7 @@ export class MyService {
     return body || {};
   }
 
-  private handleError(error: Response | any) {
-    let errMsg: string;
-    if (error instanceof Response) {
-      const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
-  }
-
-  myHandleError(err, isFromLogin) {
+  public myHandleError(err, isFromLogin=false) {
     if (err.status == 401) {
       if (isFromLogin) {
         this.showPopup('خطا', 'نام کاربری یا رمز عبور اشتباه می باشد');
@@ -90,7 +76,7 @@ export class MyService {
     alert.present();
   }
 
-  logout() {
+  public logout() {
     let db = new SQLite();
     db.openDatabase({
       name: "mydb",
@@ -111,33 +97,25 @@ export class MyService {
     this.loader.dismiss();
   }
 
-  getProduct() {
+  public getProduct() {
     if (!this.product) {
       this.product = new Product();
     }
     return this.product;
   }
 
-  getFilter() {
+  public getFilter() {
     if (!this.filter) {
       this.filter = new Filter();
     }
     return this.filter;
   }
 
-  setUser(value) {
-    this.user = value;
-  }
-
-  getUser() {
-    return this.user;
-  }
-
-  getProductId() {
+  public getProductId() {
     return this.productId;
   }
 
-  setProductId(value) {
+  public setProductId(value) {
     this.productId = value;
   }
 }

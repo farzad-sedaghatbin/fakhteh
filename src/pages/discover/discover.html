@@ -22,7 +22,6 @@
 </ion-header>
 <ion-badge class="distance" color="light">within 3 km</ion-badge>
 <ion-content padding>
-  <div *ngIf="showSearchResults">
     <ion-grid >
       <ion-row>
         <ion-col width-50>
@@ -31,6 +30,7 @@
             <ion-card-content>
               <h3>{{m.title}}</h3>
               <h4>{{m.price}}</h4>
+              <h4>{{m.duration}}</h4>
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -40,6 +40,7 @@
             <ion-card-content>
               <h3>{{m2.title}}</h3>
               <h4>{{m2.price}}</h4>
+              <h4>{{m2.duration}}</h4>
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -48,5 +49,4 @@
     <ion-infinite-scroll threshold="5%" (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
-  </div>
 </ion-content>

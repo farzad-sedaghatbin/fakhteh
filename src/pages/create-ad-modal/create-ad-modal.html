@@ -54,6 +54,13 @@
     <ion-input [(ngModel)]="model.price" type="number"></ion-input>
   </ion-item>
 
+  <ion-item>
+    <ion-label></ion-label>
+    <ion-select [(ngModel)]="model.state" cancelText="بستن" okText="انتخاب" interface="popover" placeholder="روزانه">
+      <ion-option value="teh">Female</ion-option>
+      <ion-option value="m">Male</ion-option>
+    </ion-select>
+  </ion-item>
 </ion-content>
 
 <ion-footer color="light">

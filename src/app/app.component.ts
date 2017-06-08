@@ -12,7 +12,7 @@ import {SQLite} from 'ionic-native';
 })
 export class MyApp {
   rootPage;
-  constructor(platform: Platform,myService: MyService) {
+  constructor(platform: Platform,public myService: MyService) {
     platform.ready().then(() => {
       this.rootPage = TabsPage;
       let db = new SQLite();
@@ -24,7 +24,7 @@ export class MyApp {
         });
         db.executeSql("SELECT d.log FROM bebarbiar d WHERE d.name='user'", {}).then((data) => {
           if(data.rows.length > 0) {
-            myService.setUser(JSON.parse(data.rows.item(0).log));
+            this.myService.user = JSON.parse(data.rows.item(0).log);
             this.rootPage = LoginPage;
               StatusBar.styleDefault();
               Splashscreen.hide();
