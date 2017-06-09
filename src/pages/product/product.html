@@ -10,14 +10,8 @@
 </ion-header>
 <div *ngIf="show">
   <ion-slides pager autoplay="2000" loop="true">
-    <ion-slide>
-        <img src="assets/images/macbook-large.jpg" />
-    </ion-slide>
-    <ion-slide>
-      <img src="assets/images/macbook-large.jpg" />
-    </ion-slide>
-    <ion-slide>
-      <img src="assets/images/macbook-large.jpg" />
+    <ion-slide *ngFor="let m of model.image">
+        <img src="{{m}}" />
     </ion-slide>
   </ion-slides>
 </div>
@@ -31,24 +25,22 @@
       <h1>Jonathan Parle</h1>
       <h3>Posted 3 day ago</h3>
 
-      <h2>Macbook Pro</h2>
+      <h2>{{model.title}}</h2>
 
-      <ion-badge>$ 556</ion-badge>
+      <ion-badge>{{model.price}}</ion-badge>
       <button ion-button clear (click)="chat()">
         <i class="comment-icon"></i>
       </button>
 
     </ion-card-header>
     <ion-card-content style="direction: rtl;text-align: right">
-      <h4>description</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidi dunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+      <h4>توضیحات</h4>
+      <p>{{model.description}}</p>
     </ion-card-content>
 
     <footer style="direction: rtl;text-align: right">
-      <button ion-button right clear>14 km away</button>
-      <h4>Location</h4>
-      <p>Swami Road, New Mava,<br />
-        Sarthana, Rajkot</p>
+      <h4>آدرس</h4>
+      <p>{{model.address}}</p>
     </footer>
   </ion-card>
   <button ion-button full round class="button-gradient">Make an offer</button>

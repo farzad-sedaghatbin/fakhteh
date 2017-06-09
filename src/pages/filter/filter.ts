@@ -37,7 +37,8 @@ export class FilterPage {
   }
 
   private success(result){
-    this.myService.products1 = result;
+    this.myService.products1 = result.firstList;
+    this.myService.products2 = result.secondList;
     this.myService.stopLoading();
     this.viewCtrl.dismiss();
   }

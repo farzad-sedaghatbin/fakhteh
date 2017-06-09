@@ -1,20 +1,25 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import {MyService} from '../../services/my.service';
+import {CreateAdModalPage} from "../create-ad-modal/create-ad-modal";
 
 @Component({
   selector: 'page-publish-ad',
   templateUrl: 'publish-ad.html'
 })
 export class PublishAdPage {
-  public model;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public myService:MyService) {
-    this.model = this.myService.getProduct();
+  constructor(public navCtrl: NavController,public myService:MyService) {
   }
 
   public radioClicked(cat){
-    this.model.cat = cat;
+    this.myService.product.cat = cat;
+  }
+
+  public cancel(){
+    const index = this.navCtrl.getActive().index;
+    this.navCtrl.remove(index - 1, 1)
+    this.navCtrl.pop();
   }
 
   public submit(){

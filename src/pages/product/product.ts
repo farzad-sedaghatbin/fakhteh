@@ -26,7 +26,7 @@ export class ProductPage {
   }
 
   private success(result){
-    this.model = result;
+    this.model = result.product;
     this.myService.stopLoading();
     this.show = true;
   }

@@ -13,7 +13,7 @@ import {Discover} from "../model/discover";
 
 @Injectable()
 export class MyService {
-  private product;
+  public product:Product;
   private filter;
   public user;
   public productId;
@@ -99,13 +99,6 @@ export class MyService {
 
   public stopLoading(){
     this.loader.dismiss();
-  }
-
-  public getProduct() {
-    if (!this.product) {
-      this.product = new Product();
-    }
-    return this.product;
   }
 
   public getFilter() {

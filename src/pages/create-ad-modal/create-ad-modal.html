@@ -18,7 +18,7 @@
   </ion-item>
 
   <ion-thumbnail class="cover">
-    <img [src]="model.images[0]" />
+    <img [src]="myService.product.images[0]" />
     <ion-badge>کاور</ion-badge>
   </ion-thumbnail>
 
@@ -34,7 +34,7 @@
           <i class="add-image-icon"></i>
         </button>
       </ion-col>
-      <ion-col col-3 *ngFor="let image of model.images;let i=index" (click)="changeCoverPhoto(i)">
+      <ion-col col-3 *ngFor="let image of myService.product.images;let i=index" (click)="changeCoverPhoto(i)">
         <ion-thumbnail class="ad-image">
           <span (click)="delete(i)" style="position: absolute;top: 2px;right: 2px;z-index: 100;">&times;</span>
           <img [src]="image" />
@@ -46,17 +46,17 @@
 
   <ion-item>
     <ion-label stacked>Title</ion-label>
-    <ion-input [(ngModel)]="model.title" type="text"></ion-input>
+    <ion-input [(ngModel)]="myService.product.title" type="text"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label stacked>Price</ion-label>
-    <ion-input [(ngModel)]="model.price" type="number"></ion-input>
+    <ion-input [(ngModel)]="myService.product.price" type="number"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label></ion-label>
-    <ion-select [(ngModel)]="model.state" cancelText="بستن" okText="انتخاب" interface="popover" placeholder="روزانه">
+    <ion-select [(ngModel)]="myService.product.state" cancelText="بستن" okText="انتخاب" interface="popover" placeholder="روزانه">
       <ion-option value="teh">Female</ion-option>
       <ion-option value="m">Male</ion-option>
     </ion-select>
@@ -65,7 +65,7 @@
 
 <ion-footer color="light">
   <ion-toolbar>
-    <button class="button-gradient" ion-button round full (click)="dismiss(); addProduct()">
+    <button class="button-gradient" ion-button round full (click)="addProduct()">
       Continue
     </button>
   </ion-toolbar>
